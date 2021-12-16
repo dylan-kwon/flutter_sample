@@ -7,8 +7,7 @@ import 'package:flutter_sample/util/network/network.dart';
 class UserApi {
   Future<List<User>> getUsers({int loadCount = 30}) async {
     try {
-      var response = await apiServer
-          .get("", query: {"results": "$loadCount"});
+      var response = await apiServer.get("", query: {"results": "$loadCount"});
 
       return (json.decode(response.bodyString!)['results'] as List)
           .map((e) => User.fromJson(e))
@@ -19,3 +18,5 @@ class UserApi {
     }
   }
 }
+
+late final userApi = UserApi();

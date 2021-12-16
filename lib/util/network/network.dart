@@ -13,4 +13,4 @@ class HttpClient extends GetConnect {
   }
 }
 
-final apiServer = HttpClient("https://randomuser.me/api");
+late final apiServer = HttpClient("https://randomuser.me/api");

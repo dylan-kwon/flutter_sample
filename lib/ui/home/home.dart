@@ -84,12 +84,10 @@ class _HomeController extends GetxController {
 
   var isLoading = false.obs;
 
-  final _userApi = UserApi();
-
   void loadUsers() async {
     isLoading.value = true;
 
-    users.value = await _userApi.getUsers();
+    users.value = await userApi.getUsers();
 
     isLoading.value = false;
   }
