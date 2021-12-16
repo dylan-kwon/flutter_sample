@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sample/translation/app_translation.dart';
 import 'package:flutter_sample/ui/home/home.dart';
 import 'package:flutter_sample/ui/user_detail/user_detail.dart';
 import 'package:get/get.dart';
@@ -15,6 +16,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
+        locale: Get.deviceLocale,
+        translations: AppTranslation(),
         home: const Home(),
         getPages: [
           GetPage(name: UserDetail.routeName, page: () => const UserDetail())
