@@ -3,8 +3,12 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_sample/data/user/user.dart';
 import 'package:flutter_sample/util/network/network.dart';
+import 'package:get/get.dart';
 
 class UserApi {
+
+  var apiServer = Get.find<HttpClient>();
+
   Future<List<User>> getUsers({int loadCount = 30}) async {
     try {
       var response = await apiServer.get("", query: {"results": "$loadCount"});
@@ -18,5 +22,3 @@ class UserApi {
     }
   }
 }
-
-late final userApi = UserApi();

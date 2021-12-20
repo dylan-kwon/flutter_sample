@@ -4,10 +4,20 @@ import 'package:flutter_sample/ui/home/home.dart';
 import 'package:flutter_sample/ui/user_detail/user_detail.dart';
 import 'package:get/get.dart';
 
-void main() => runApp(const MyApp());
+import 'data/user/user_api.dart';
+import 'util/network/network.dart';
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key) {
+    _initGetX();
+  }
+
+  void _initGetX() {
+    Get.lazyPut(() => UserApi());
+    Get.lazyPut(() => HttpClient("https://randomuser.me/api"));
+  }
 
   @override
   Widget build(BuildContext context) => GetMaterialApp(
