@@ -12,8 +12,7 @@ class UserDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var args =
-        ModalRoute.of(context)?.settings.arguments as UserDetailArguments;
+    var args = Get.arguments as UserDetailArguments;
 
     var user = args.user;
     var name = "${user.name?.first} ${user.name?.last}";
